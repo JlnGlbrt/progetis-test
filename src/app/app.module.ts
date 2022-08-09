@@ -1,40 +1,30 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+
+import { AppRoutingModule } from './app-routing.module';
+
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { OverviewComponent } from './overview/overview.component';
-import { AsteroidsComponent } from './asteroids/asteroids.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
 @NgModule({
   declarations: [
-    AppComponent,
-    OverviewComponent,
-    AsteroidsComponent,
-    PageNotFoundComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule,
-    RouterModule.forRoot([
-        {path: 'overview', component: OverviewComponent},
-        {path: 'asteroids', component: AsteroidsComponent},
-        {path: '', redirectTo: '/overview', pathMatch: 'full'},
-        {path: '**', component: PageNotFoundComponent}
-    ]),
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
