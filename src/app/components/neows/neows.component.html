@@ -1,1 +1,14 @@
 <p>Asteroids Near Earth Object Web Service</p>
+
+<ul>
+  <ul>
+    <li *ngFor="let entry of data">
+      {{entry.key}}
+    <ul>
+        <li *ngFor="let asteroid of entry">
+        {{asteroid.id}} - {{asteroid.name}}
+        </li>
+    </ul>
+    </li>
+</ul>
+</ul>

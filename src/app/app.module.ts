@@ -8,6 +8,8 @@ import { AppTemplatingModule } from './app-templating.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { NasaService } from './services/nasa.service';
+
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -15,13 +17,13 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
   ],
   imports: [
+    BrowserModule,
     AppRoutingModule,
     AppTemplatingModule,
-    BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [NasaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

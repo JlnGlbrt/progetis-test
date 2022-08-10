@@ -15,11 +15,13 @@ export class NeowsComponent implements OnInit {
   constructor(private nasaService: NasaService) { }
 
   ngOnInit(): void {
-    let today = Date().toString()
+    var date = new Date();
+    var today = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
     this.nasaService.getAsteroidsNeoWs(today, today)
     .subscribe((res: JSON) => {
       let data = JSON.parse(JSON.stringify(res));
-      this.data = data;
+      this.data = Object.values(data.near_earth_objects);
     });
   }
 

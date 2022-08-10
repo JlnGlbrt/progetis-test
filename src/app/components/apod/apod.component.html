@@ -4,10 +4,17 @@
 
 <p>{{ data.date }}</p>
 
-<div *ngIf="data.media_type === 'image'"><p>{{ data.media_type }}</p></div>
-<div *ngIf="data.media_type == 'video'">Video</div>
+<div *ngIf="data.media_type === 'image'">
+  <img width="960" height="450" src="{{ data.url }}"/>
+</div>
 
-<img src="{{ data.url }}"/>
+<div *ngIf="data.media_type === 'video'">
+  <iframe width="960" height="450"
+    src="{{ data.url }}">
+  </iframe>
+</div>
+
+
 
 <div>{{ data.title }}</div>
 <div><b>Images Credit: </b><i>{{ data.copyright }}</i></div>
