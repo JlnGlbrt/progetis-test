@@ -1,0 +1,15 @@
+<p>Astronomy Picture Of The Day</p>
+
+<p>Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</p>
+
+<p>{{ data.date }}</p>
+
+<div *ngIf="data.media_type === 'image'"><p>{{ data.media_type }}</p></div>
+<div *ngIf="data.media_type == 'video'">Video</div>
+
+<img src="{{ data.url }}"/>
+
+<div>{{ data.title }}</div>
+<div><b>Images Credit: </b><i>{{ data.copyright }}</i></div>
+
+{{ data.explanation }}

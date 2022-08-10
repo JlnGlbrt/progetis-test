@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { OverviewComponent } from './overview/overview.component';
-import { AsteroidsComponent } from './asteroids/asteroids.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ApodComponent } from './components/apod/apod.component';
+import { NeowsComponent } from './components/neows/neows.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-    {path: 'overview', component: OverviewComponent},
-    {path: 'asteroids', component: AsteroidsComponent},
-    {path: '', redirectTo: '/overview', pathMatch: 'full'},
+    {path: 'apod', component: ApodComponent},
+    {path: 'neows', component: NeowsComponent},
+    {path: '', redirectTo: '/apod', pathMatch: 'full'},
     {path: '**', component: PageNotFoundComponent}
 ];
 
