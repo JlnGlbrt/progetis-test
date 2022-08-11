@@ -1,20 +1,30 @@
 <mat-card>
   <mat-card-header>
     <img mat-card-avatar src="/assets/img/NASA_icon.png"/>
-    <mat-card-title>Asteroids Near Earth Object Web Service</mat-card-title>
+    <mat-card-title>Daily Near Earth Asteroids</mat-card-title>
     <mat-card-subtitle>Don’t let the name fool you. Our solar system’s small bodies – asteroids, comets, and meteors –pack big surprises. These chunks of rock, ice and metal are leftovers from the formation of our solar system 4.6 billion years ago. They are a lot like a fossil record of our early solar system. There are currently <b>1,113,527</b> known asteroids.</mat-card-subtitle>
   </mat-card-header>
 
-    <div *ngFor="let todayAsteroids of data">
-        <mat-card *ngFor="let asteroid of todayAsteroids">
-          <mat-card-title-group>
-            <mat-card-title>{{asteroid.name}}</mat-card-title>
-            <mat-card-subtitle>{{asteroid.id}}</mat-card-subtitle>
-          </mat-card-title-group>
-          <mat-card-content>
-
-          </mat-card-content>
-        </mat-card>
-
-    </div>
+  <div *ngFor="let dailyAsteroids of data">
+      <mat-card *ngFor="let asteroid of dailyAsteroids">
+        <mat-card-header>
+          <mat-card-title>Name : {{asteroid.name}}</mat-card-title>
+          <mat-card-subtitle>Id : {{asteroid.id}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <table class="mat-elevation-z8">
+            <tr>
+              <th>Estimated diameter (m)</th>
+              <th>Relative velocity (km/h)</th>
+              <th>Miss Distance (km)</th>
+            </tr>
+            <tr>
+             <td>{{asteroid.estimated_diameter.meters.estimated_diameter_min | number: '1.0-0'}} to {{asteroid.estimated_diameter.meters.estimated_diameter_max | number: '1.0-0'}}</td>
+             <td>{{asteroid.close_approach_data[0].relative_velocity.kilometers_per_hour}}</td>
+             <td>{{asteroid.close_approach_data[0].miss_distance.kilometers}}</td>
+            </tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+  </div>
 </mat-card>

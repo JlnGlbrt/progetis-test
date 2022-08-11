@@ -16,7 +16,7 @@
   </div>
 
   <mat-card-content>
-    <p>{{ data.title }} | {{ data.date }} | <b>Images Credit: </b><i>{{ data.copyright }}</i></p>
+    <p>{{ data.title }} | {{ data.date | date:"dd/MM/yyyy" }} | <b>Images Credit: </b><i>{{ data.copyright }}</i></p>
     <p>{{ data.explanation }}</p>
   </mat-card-content>
 </mat-card>
