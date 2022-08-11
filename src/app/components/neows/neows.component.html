@@ -1,14 +1,20 @@
-<p>Asteroids Near Earth Object Web Service</p>
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar src="/assets/img/NASA_icon.png"/>
+    <mat-card-title>Asteroids Near Earth Object Web Service</mat-card-title>
+    <mat-card-subtitle>Don’t let the name fool you. Our solar system’s small bodies – asteroids, comets, and meteors –pack big surprises. These chunks of rock, ice and metal are leftovers from the formation of our solar system 4.6 billion years ago. They are a lot like a fossil record of our early solar system. There are currently <b>1,113,527</b> known asteroids.</mat-card-subtitle>
+  </mat-card-header>
 
-<ul>
-  <ul>
-    <li *ngFor="let entry of data">
-      {{entry.key}}
-    <ul>
-        <li *ngFor="let asteroid of entry">
-        {{asteroid.id}} - {{asteroid.name}}
-        </li>
-    </ul>
-    </li>
-</ul>
-</ul>
+    <div *ngFor="let todayAsteroids of data">
+        <mat-card *ngFor="let asteroid of todayAsteroids">
+          <mat-card-title-group>
+            <mat-card-title>{{asteroid.name}}</mat-card-title>
+            <mat-card-subtitle>{{asteroid.id}}</mat-card-subtitle>
+          </mat-card-title-group>
+          <mat-card-content>
+
+          </mat-card-content>
+        </mat-card>
+
+    </div>
+</mat-card>

@@ -1,22 +1,22 @@
-<p>Astronomy Picture Of The Day</p>
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar src="/assets/img/NASA_icon.png"/>
+    <mat-card-title>Astronomy Picture Of The Day</mat-card-title>
+    <mat-card-subtitle>Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</mat-card-subtitle>
+  </mat-card-header>
+  <br>
+  <div *ngIf="data.media_type === 'image'">
+    <img mat-card-image height="500" src="{{ data.url }}" alt="{{ data.title }}">
+  </div>
 
-<p>Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</p>
+  <div *ngIf="data.media_type === 'video'">
+    <iframe width="960" height="450"
+      src="{{ data.url }}">
+    </iframe>
+  </div>
 
-<p>{{ data.date }}</p>
-
-<div *ngIf="data.media_type === 'image'">
-  <img width="960" height="450" src="{{ data.url }}"/>
-</div>
-
-<div *ngIf="data.media_type === 'video'">
-  <iframe width="960" height="450"
-    src="{{ data.url }}">
-  </iframe>
-</div>
-
-
-
-<div>{{ data.title }}</div>
-<div><b>Images Credit: </b><i>{{ data.copyright }}</i></div>
-
-{{ data.explanation }}
+  <mat-card-content>
+    <p>{{ data.title }} | {{ data.date }} | <b>Images Credit: </b><i>{{ data.copyright }}</i></p>
+    <p>{{ data.explanation }}</p>
+  </mat-card-content>
+</mat-card>
