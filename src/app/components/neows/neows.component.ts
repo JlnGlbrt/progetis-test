@@ -10,6 +10,7 @@ import { NasaService } from '../../services/nasa.service';
 })
 export class NeowsComponent implements OnInit {
 
+  public today: any;
   public data: any;
 
   constructor(private nasaService: NasaService) { }
@@ -21,6 +22,7 @@ export class NeowsComponent implements OnInit {
     this.nasaService.getAsteroidsNeoWs(today, today)
     .subscribe((res: JSON) => {
       let data = JSON.parse(JSON.stringify(res));
+      this.today = date;
       this.data = Object.values(data.near_earth_objects);
     });
   }

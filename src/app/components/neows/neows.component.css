@@ -17,3 +17,7 @@ tr:nth-child(even) {
 mat-card {
   margin-bottom: 15px;
 }
+
+mat-spinner {
+  margin: auto;
+}

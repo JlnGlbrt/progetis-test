@@ -4,19 +4,23 @@
     <mat-card-title>Astronomy Picture Of The Day</mat-card-title>
     <mat-card-subtitle>Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</mat-card-subtitle>
   </mat-card-header>
+
   <br>
-  <div *ngIf="data.media_type === 'image'">
-    <img mat-card-image height="500" src="{{ data.url }}" alt="{{ data.title }}">
+
+  <div *ngIf="data">
+    <div *ngIf="data.media_type === 'image'">
+      <img mat-card-image height="500" src="{{ data.url }}" alt="{{ data.title }}">
+    </div>
+
+    <div *ngIf="data.media_type === 'video'">
+      <iframe width="960" height="450" src="{{ data.url }}"></iframe>
+    </div>
+
+    <mat-card-content>
+      <p>{{ data.title }} | {{ data.date | date:"dd/MM/yyyy" }} | <b>Images Credit: </b><i>{{ data.copyright }}</i></p>
+      <p>{{ data.explanation }}</p>
+    </mat-card-content>
   </div>
 
-  <div *ngIf="data.media_type === 'video'">
-    <iframe width="960" height="450"
-      src="{{ data.url }}">
-    </iframe>
-  </div>
-
-  <mat-card-content>
-    <p>{{ data.title }} | {{ data.date | date:"dd/MM/yyyy" }} | <b>Images Credit: </b><i>{{ data.copyright }}</i></p>
-    <p>{{ data.explanation }}</p>
-  </mat-card-content>
+  <mat-spinner *ngIf="!data"></mat-spinner>
 </mat-card>
